@@ -1,0 +1,37 @@
+from time import sleep
+import random
+
+# --- The gpiozero dependency is removed to make the code runnable on any standard Python environment ---
+
+# Define the possible notification states
+notification_status = ["urgent", "normal", "none"]
+
+print("Notification LED Simulation Started...")
+print("Colors: RED = Urgent, YELLOW = Normal, GREEN = None")
+
+# Define the simulated LED states (just for output)
+LED_STATES = {
+    "urgent": "🔴 RED (Simulated)",
+    "normal": "🟡 YELLOW (Simulated)",
+    "none": "🟢 GREEN (Simulated)"
+}
+
+while True:
+    # Randomly choose notification status for simulation
+    status = random.choice(notification_status)
+    
+    # Simulate setting the LED color based on status
+    if status == "urgent":
+        # Simulate setting color to RED
+        print(f"[{LED_STATES['urgent']}] Urgent Notification!")
+        
+    elif status == "normal":
+        # Simulate setting color to YELLOW
+        print(f"[{LED_STATES['normal']}] Normal Notification")
+        
+    else:
+        # Simulate setting color to GREEN
+        print(f"[{LED_STATES['none']}] No Notifications")
+    
+    # Wait 5 seconds before checking again
+    sleep(5)
